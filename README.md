@@ -7,7 +7,7 @@ bash ~/sun/setup.sh
 ```
 
 ## Running a script
-All scripts can be executed individually without requiring others to also be executed.
+All scripts can be executed individually.
 ```shell
 bash ~/sun/scripts/<filename>.sh
 ```
