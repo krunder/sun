@@ -2,7 +2,7 @@
 
 ## Getting Started - Fresh OS Install
 ```shell
-git clone git@github.com:krunder/sun.git ~/sun
+git clone https://github.com/krunder/sun.git ~/sun
 bash ~/sun/setup.sh
 ```
 
