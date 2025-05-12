@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#apt install -y meson ninja-build
+#apt install -y meson ninja-build libwayland-dev libvulkan-dev cmake wayland-protocols libx11-dev libx11-xcb-dev libxdamage-dev libxcomposite-dev libxcursor-dev libxxf86vm-dev libxcb-xfixes0-dev libxtst-dev libxres-dev libxmu-dev libxkbcommon-dev libdrm-dev libpixman-1-dev libudev-dev libseat-dev libinput-dev libxcb-composite0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-res0-dev libdecor-0-dev glslang-tools libbenchmark-dev libsdl2-dev libglm-dev libeis-dev libavif-dev libluajit-5.1-dev libcap-dev libdisplay-info-dev
 #git clone https://github.com/ValveSoftware/gamescope.git
 #cd gamescope
 #git submodule update --init
