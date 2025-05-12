@@ -1,0 +1,6 @@
+#!/bin/bash
+
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+config_dir="$HOME/.config/pipewire"
+
+rm -rf $config_dir && cp -r $script_dir/../env/.config/pipewire $config_dir

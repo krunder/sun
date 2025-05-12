@@ -1,0 +1,4 @@
+#!/bin/bash
+
+curl -L -o /tmp/steam.deb "https://cdn.fastly.steamstatic.com/client/installer/steam.deb"
+sudo apt install -y /tmp/steam.deb

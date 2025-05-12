@@ -1,13 +1,13 @@
 # SUN
 
-## Getting Started - Fresh OS Install
+## Fresh OS Install
 ```shell
 git clone https://github.com/krunder/sun.git ~/sun
-bash ~/sun/setup.sh
+bash ~/sun/run
 ```
 
 ## Running a script
 All scripts can be executed individually.
 ```shell
-bash ~/sun/scripts/<filename>.sh
+bash ~/sun/run -s discord
 ```

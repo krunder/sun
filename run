@@ -1,0 +1,34 @@
+#!/bin/bash
+
+echo "Setting up..."
+sudo apt update
+
+RUNS_PATH=$( dirname "$0" )"/runs"
+enabled_runs=( "$RUNS_PATH/"* )
+
+
+# Check if any .sh files exist
+if [ ${#enabled_runs[@]} -eq 0 ] || [ ! -f "${enabled_runs[0]}" ]; then
+    echo "No run files found in $RUNS_PATH" >&2
+    exit 1
+fi
+
+while getopts ":s:" option; do
+    case $option in
+        s)
+            enabled_runs=( "$RUNS_PATH/$OPTARG" );;
+    esac
+done
+
+for file in "${enabled_runs[@]}"; do
+    echo "Running: $file"
+    source $file
+    wait
+    if [ $? -ne 0 ]; then
+        echo "Error: $file failed to execute" >&2
+    fi
+done
+
+echo "Cleaning up..."
+sudo apt autoremove -y
+sudo apt clean -y
