@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DRIVER_VERSION=565
+DRIVER_VERSION=570
 
 sudo add-apt-repository ppa:graphics-drivers/ppa -y
 sudo apt update
