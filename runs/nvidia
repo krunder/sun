@@ -1,4 +1,0 @@
-#!/bin/bash
-
-sudo pacman -S linux-headers nvidia-open-dkms nvidia-utils egl-wayland
-
