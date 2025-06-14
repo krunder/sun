@@ -1,3 +1,4 @@
 #!/bin/bash
 
+git clone https://aur.archlinux.org/ttf-twemoji.git && cd ttf-twemoji && makepkg -si
 sudo pacman -S --noconfirm discord
