@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S --noconfirm rofi
+sudo pacman -S --noconfirm rofi-wayland
 mkdir --parents $HOME/.config/rofi
 git clone https://github.com/dracula/rofi
 cp rofi/theme/config1.rasi ~/.config/rofi/config.rasi
