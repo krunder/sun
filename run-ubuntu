@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "Setting up..."
+sudo apt update
 
 RUNS_PATH=$( dirname "$0" )"/runs"
 enabled_runs=( "$RUNS_PATH/"* )
@@ -27,3 +28,7 @@ for file in "${enabled_runs[@]}"; do
         echo "Error: $file failed to execute" >&2
     fi
 done
+
+echo "Cleaning up..."
+sudo apt autoremove -y
+sudo apt clean -y

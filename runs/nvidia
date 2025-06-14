@@ -1,7 +1,4 @@
 #!/bin/bash
 
-DRIVER_VERSION=570
+sudo pacman -S linux-headers nvidia-open-dkms nvidia-utils egl-wayland
 
-sudo add-apt-repository ppa:graphics-drivers/ppa -y
-sudo apt update
-sudo apt install -y nvidia-driver-${DRIVER_VERSION}
