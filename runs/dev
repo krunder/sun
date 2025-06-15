@@ -17,6 +17,8 @@ ANDROID_SDK_PATH_EXPORT='export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/lates
 NVM_VERSION='0.40.3'
 NODE_VERSION=22
 
+cp -r $HOME/sun/env/.local/scripts $HOME/.local
+
 echo "Installing Visual Studio Code..."
 paru -S --noconfirm visual-studio-code-bin
 
@@ -49,3 +51,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 source ~/.bashrc
 nvm install $NODE_VERSION
+
