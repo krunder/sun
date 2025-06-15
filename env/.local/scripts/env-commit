@@ -7,4 +7,4 @@ cp -r $HOME/.config/pipewire $HOME/sun/env/.config
 cp -r $HOME/.local/share/steam $HOME/sun/env/.local/share
 
 cd $HOME/sun
-git add -A && git commit -m "feat: Update env" && git push origin main
+git add -A && git commit -m "feat: Update env/runners" && git push origin main
