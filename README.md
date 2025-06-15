@@ -1,5 +1,5 @@
 # SUN
-A repository holding all scripts and configs for my primary machine.
+A repository holding all scripts and configs for my primary machine..
 
 ## Arch
 
