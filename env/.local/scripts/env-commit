@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cp -r ~/.config/waybar ~/sun/env/.config
+cp -r ~/.config/hypr ~/sun/env/.config
+cp -r ~/.config/pipewire ~/sun/env/.config
+
+cp -r ~/.local/share/steam ~/sun/env/.local/share
+
+cd $HOME/sun
+git add -A && git commit -m "feat: Update env" && git push origin main
