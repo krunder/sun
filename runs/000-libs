@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo pacman -S --needed --noconfirm base-devel git gnome-keyring less unzip ntfs-3g feh vlc gnome-themes-extra adobe-source-code-pro-fonts ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
+
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -s --noconfirm
