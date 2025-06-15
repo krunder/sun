@@ -1,13 +1,16 @@
 # SUN
 
-## Fresh OS Install
+## Arch
+
+### Fresh Install
+All runners will be executed by default. Ideal after a fresh OS install.
 ```shell
 git clone https://github.com/krunder/sun.git ~/sun
 bash ~/sun/run
 ```
 
-## Running a script
-All scripts can be executed individually.
+### Single Run
+Any runner can be executed individually by passing the `-s` argument.
 ```shell
-bash ~/sun/run -s discord
+bash ~/sun/run -s dev
 ```
