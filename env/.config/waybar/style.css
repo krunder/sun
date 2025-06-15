@@ -20,6 +20,10 @@
   padding: 0 5px;
 }
 
+window#waybar.empty .modules-left {
+  background: transparent;
+}
+
 #workspaces {
   color: white;
 }
