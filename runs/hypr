@@ -3,7 +3,7 @@
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 media_dir="$HOME/media"
 
-sudo pacman -S --noconfirm hyprpaper
+sudo pacman -S --noconfirm hyprpaper hyprlock
 
 cp -r $script_dir/../env/.config/hypr $HOME/.config
 cp -r $script_dir/../env/media $HOME
