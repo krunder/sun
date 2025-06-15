@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo pacman -S --noconfirm bluez bluetui
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service

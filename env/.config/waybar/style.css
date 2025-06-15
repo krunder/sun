@@ -1,13 +1,22 @@
 * {
   font-family: Cantarell, Noto Sans, sans-serif;
   font-size: 14px;
+  font-weight: 500;
   min-height: 0;
-  padding: 0 2px;
+  padding: 0;
 }
 
 #waybar {
-  background: rgba(16, 16, 16, 0.5);
+  background: transparent; 
   color: white;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  background: rgba(16, 16, 16, 0.5);
+  border-radius: 20px;
+  margin: 3px 5px;
   padding: 0 5px;
 }
 
@@ -16,44 +25,31 @@
 }
 
 #workspaces button {
-  padding: 0.4rem;
   color: white;
   background: transparent;
   border: 0 transparent solid;
+  margin-right: 5px;
 }
 
-#custom-music,
+#workspaces button:first-child {
+  margin-left: -5px;
+}
+
+#workspaces button:last-child {
+  margin-right: 0;
+}
+
 #tray,
 #backlight,
 #clock,
 #battery,
+#bluetooth,
 #pulseaudio,
 #network,
 #cpu,
 #memory,
-#custom-lock,
-#custom-power {
-  padding: 6px 10px;
-}
-
+#window,
+#workspaces,
 #pulseaudio {
-  border-radius: 5px 0px 0px 5%;
-  margin-left: 1rem;
-}
-
-#custom-music {
-  border-radius: 5px;
-}
-
-#custom-lock {
-  border-radius: 5px 0px 0px 5px;
-}
-
-#custom-power {
-  margin-right: 1rem;
-  border-radius: 0px 5px 5px 0px;
-}
-
-#tray {
-  border-radius: 5px;
+  padding: 5px 8px;
 }

@@ -9,23 +9,25 @@
   ],
   "modules-right": [
     "pulseaudio",
+    "bluetooth",
     "network",
     "tray",
     "clock"
   ],
   "hyprland/workspaces": {
-    "format": "{name} {icon}",
+    "format": "{icon}",
     "format-icons": {
-      "active": "",
-      "default": ""
-    }
+      "active": "",
+      "default": ""
+    },
+    "all-outputs": true
   },
   "hyprland/window": {
     "format": "{initialTitle}"
   },	  
   "tray": {
-    "icon-size": 18,
-    "spacing": 10
+    "icon-size": 14,
+    "spacing": 15
   },
   "pulseaudio": {
     "format": "{icon}  {volume}%",
@@ -46,5 +48,15 @@
     "timezone": "Europe/London",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "{:%a %d %b  %H:%M}"
-  }
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "",
+    "format-connected": "",
+    "tooltip": true,
+    "tooltip-format": "{num_connections} connected",
+    "tooltip-format-connected": "{num_connections} devices connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  }	  
 }
