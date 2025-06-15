@@ -1,7 +1,9 @@
 #!/bin/bash
 
-sudo pacman -S --needed --noconfirm base-devel git less unzip ntfs-3g feh vlc gnome-themes-extra adobe-source-code-pro-fonts ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
+sudo pacman -S --needed --noconfirm base-devel git gnome-keyring less unzip ntfs-3g feh vlc gnome-themes-extra adobe-source-code-pro-fonts ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -s --noconfirm
 rm -rf ../paru
+
+git config --global credential.helper libsecret
