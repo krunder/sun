@@ -7,12 +7,19 @@ group_id=$( id -g )
 
 device_games="/dev/nvme1n1p2"
 uuid_games=$(blkid -s UUID -o value "$device_games")
-fstype_games=$(blkid -s TYPE -o value "$device_games")
 
 device_nas="/dev/sda2"
 uuid_nas=$(blkid -s UUID -o value "$device_nas")
-fstype_nas=$(blkid -s TYPE -o value "$device_nas")
 
 sudo mkdir -p /mnt/games && sudo mkdir -p /mnt/nas
-sudo echo "UUID=${uuid_games} /mnt/games ${fstype_games} noatime,nodev,nosuid,uid=${user_id},gid=${group_id} 0 2"
-sudo echo "UUID=${uuid_nas} /mnt/nas ${fstype_nas} noatime,nodev,nosuid,uid=${user_id},gid=${group_id} 0 2"
+
+fstab_games="UUID=${uuid_games} /mnt/games ntfs-3g rw,noatime,nodev,nosuid,uid=${user_id},gid=${group_id} 0 2"
+fstab_nas="UUID=${uuid_nas} /mnt/nas ntfs-3g rw,noatime,nodev,nosuid,uid=${user_id},gid=${group_id} 0 2"
+
+if ! grep -q "$fstab_games" $fstab; then
+  echo $fstab_games | sudo tee -a $fstab
+fi
+
+if ! grep -q "$fstab_nas" $fstab; then
+  echo $fstab_nas | sudo tee -a $fstab
+fi
