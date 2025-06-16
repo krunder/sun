@@ -1,9 +1,16 @@
 #!/bin/bash
 
+# Other
 cp -r $HOME/.config/waybar $HOME/sun/env/.config
 cp -r $HOME/.config/hypr $HOME/sun/env/.config
 cp -r $HOME/.config/pipewire $HOME/sun/env/.config
 
+# Spotify
+mkdir -p $HOME/sun/env/.config/spotify-player
+cp -r $HOME/.config/spotify-player/keymap.toml $HOME/sun/env/.config/spotify-player/keymap.toml
+cp -r $HOME/.config/spotify-player/custom.toml $HOME/sun/env/.config/spotify-player/custom.toml
+
+# Steam
 cp -r $HOME/.local/share/steam $HOME/sun/env/.local/share
 
 cd $HOME/sun

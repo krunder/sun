@@ -1,10 +1,10 @@
 [[keymaps]]
 command = "SearchPage"
-key_sequence = "/"
+key_sequence = "g s"
 
 [[keymaps]]
 command = "Search"
-key_sequence = "g s"
+key_sequence = "/"
 
 [[keymaps]]
 command = "None"
