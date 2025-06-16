@@ -1,0 +1,11 @@
+[[keymaps]]
+command = "SearchPage"
+key_sequence = "/"
+
+[[keymaps]]
+command = "Search"
+key_sequence = "g s"
+
+[[keymaps]]
+command = "None"
+key_sequence = "q"
