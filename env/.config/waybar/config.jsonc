@@ -23,7 +23,7 @@
     "all-outputs": true
   },
   "hyprland/window": {
-    "format": "{initialTitle}"
+    "format": "{title}"
   },	  
   "tray": {
     "icon-size": 14,
