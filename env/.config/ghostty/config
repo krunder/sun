@@ -1,0 +1,9 @@
+theme = rose-pine-moon
+background-opacity = 0.85
+background-blur = false
+confirm-close-surface = false
+
+font-size = 10.5
+
+shell-integration-features = no-title
+gtk-titlebar = false
