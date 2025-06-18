@@ -1,4 +1,5 @@
 theme = rose-pine-moon
+background = #000
 background-opacity = 0.85
 background-blur = false
 confirm-close-surface = false
