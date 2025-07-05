@@ -20,7 +20,7 @@
       "active": "",
       "default": ""
     },
-    "all-outputs": true
+    "all-outputs": false
   },
   "hyprland/window": {
     "format": "{title}"
