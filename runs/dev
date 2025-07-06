@@ -19,8 +19,8 @@ NODE_VERSION=22
 
 cp -r $HOME/sun/env/.local/scripts $HOME/.local
 
-echo "Installing Visual Studio Code..."
-paru -S --noconfirm visual-studio-code-bin
+echo "Installing Visual Studio Codium..."
+paru -S --noconfirm vscodium-bin
 
 echo "Installing JDK..."
 sudo pacman -S --noconfirm jdk${JDK_VERSION}-openjdk
