@@ -24,17 +24,17 @@ cp -r $HOME/sun/env/.local/scripts $HOME/.local
 
 echo "Installing Visual Studio Codium..."
 paru -S --noconfirm vscodium-bin
-mkdir -p $HOME/${CODIUM_OSS_PATH}/extensions && cp -r $HOME/sun/env/${CODIUM_OSS_PATH}/extensions $HOME/.vscode-oss 
-mkdir -p $HOME/.config/VSCodium/User
+mkdir -p $HOME/${CODIUM_OSS_PATH}/extensions && cp -r $HOME/sun/env/${CODIUM_OSS_PATH}/extensions/extensions.json $HOME/${CODIUM_OSS_PATH}/extensions/extensions.json 
+mkdir -p $HOME/${CODIUM_USER_PATH}
 cp $HOME/sun/env/${CODIUM_USER_PATH}/settings.json $HOME/${CODIUM_USER_PATH}/settings.json
 cp $HOME/sun/env/${CODIUM_USER_PATH}/keybindings.json $HOME/${CODIUM_USER_PATH}/keybindings.json
 
 echo "Installing JDK..."
 sudo pacman -S --noconfirm jdk${JDK_VERSION}-openjdk
-if ! grep -q "$JAVA_HOME_EXPORT" $HOME/.zshrc; then
-  echo "$JAVA_HOME_EXPORT" >> $HOME/.zshrc
-  echo "$JAVA_HOME_PATH_EXPORT" >> $HOME/.zshrc
-  source $HOME/.zshrc
+if ! grep -q "$JAVA_HOME_EXPORT" $HOME/.bashrc; then
+  echo "$JAVA_HOME_EXPORT" >> $HOME/.bashrc
+  echo "$JAVA_HOME_PATH_EXPORT" >> $HOME/.bashrc
+  source $HOME/.bashrc
 fi
 
 echo "Installing Android SDK..."
@@ -44,10 +44,10 @@ curl -L -o $HOME/commandlinetools.zip https://dl.google.com/android/repository/c
 unzip $HOME/commandlinetools.zip -d ${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}
 rm -f $HOME/commandlinetools.zip
 mv ${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}/cmdline-tools ${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}/latest
-if ! grep -q "$ANDROID_SDK_EXPORT" $HOME/.zshrc; then
-  echo "$ANDROID_SDK_EXPORT" >> $HOME/.zshrc
-  echo "$ANDROID_SDK_PATH_EXPORT" >> $HOME/.zshrc
-  source $HOME/.zshrc
+if ! grep -q "$ANDROID_SDK_EXPORT" $HOME/.bashrc; then
+  echo "$ANDROID_SDK_EXPORT" >> $HOME/.bashrc
+  echo "$ANDROID_SDK_PATH_EXPORT" >> $HOME/.bashrc
+  source $HOME/.bashrc
 fi
 sdkmanager "platform-tools" "platforms;android-$ANDROID_PLATFORM_VERSION" "build-tools;$ANDROID_BUILD_TOOLS_VERSION"
 
@@ -56,6 +56,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source $HOME/.zshrc
+source $HOME/.bashrc
 nvm install $NODE_VERSION
 
