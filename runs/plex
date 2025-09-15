@@ -1,5 +1,0 @@
-#!/bin/bash
-
-paru -S --noconfirm plex-media-server
-sudo systemctl enable plexmediaserver.service
-sudo systemctl start plexmediaserver.service

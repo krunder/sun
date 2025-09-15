@@ -51,6 +51,9 @@ if ! grep -q "$ANDROID_SDK_EXPORT" $HOME/.bashrc; then
 fi
 sdkmanager "platform-tools" "platforms;android-$ANDROID_PLATFORM_VERSION" "build-tools;$ANDROID_BUILD_TOOLS_VERSION"
 
+echo "Installing Go..."
+sudo pacman -S --noconfirm go
+
 echo "Installing NodeJS..."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
