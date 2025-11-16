@@ -2,5 +2,5 @@
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-paru -S --noconfirm spotify-player-full
+paru -S --noconfirm spotify-player
 cp -r $script_dir/../env/.config/spotify-player $HOME/.config
