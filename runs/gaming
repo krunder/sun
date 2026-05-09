@@ -3,12 +3,13 @@
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 sudo pacman -Sy --noconfirm multilib
-sudo pacman -S --noconfirm steam lib32-nvidia-utils gamemode lib32-gamemode
+sudo pacman -Sy --noconfirm steam lib32-nvidia-utils gamemode lib32-gamemode
 
 # Steam
 cp -r $script_dir/../env/.local $HOME/.local
 echo "__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1" | sudo tee -a /etc/environment
 echo "__GL_SHADER_DISK_CACHE_SIZE=100000000000" | sudo tee -a /etc/environment
+paru -Sy --noconfirm proton-ge-custom-bin
 
 # Gamemode
 sudo gpasswd -a $USER gamemode
