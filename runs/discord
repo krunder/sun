@@ -2,4 +2,4 @@
 
 git clone https://aur.archlinux.org/ttf-twemoji.git && cd ttf-twemoji && makepkg -si --noconfirm && cd .. && rm -rf ttf-twemoji
 
-paru -Sy --noconfirm discord_arch_electron
+paru -Sy --noconfirm discord
