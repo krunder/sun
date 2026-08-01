@@ -4,7 +4,7 @@
 cp $HOME/.zshrc $HOME/sun/env/.zshrc
 
 # Other
-cp -r $HOME/.config/waybar $HOME/sun/env/.config
+#cp -r $HOME/.config/waybar $HOME/sun/env/.config
 cp -r $HOME/.config/hypr $HOME/sun/env/.config
 cp -r $HOME/.config/pipewire $HOME/sun/env/.config
 cp -r $HOME/.config/ghostty $HOME/sun/env/.config
