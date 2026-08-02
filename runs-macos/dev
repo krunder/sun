@@ -15,24 +15,31 @@ ANDROID_SDK_EXPORT='export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk'
 ANDROID_SDK_PATH_EXPORT='export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platform-tools'
 
 NVM_VERSION='0.40.4'
+NVM_PATH="$HOME/.config/nvm"
+NVM_DIR_EXPORT='export NVM_DIR=$HOME/.config/nvm'
 NODE_VERSION=24
+PHP_VERSION='php@8.3'
 
 CODIUM_USER_PATH='Library/Application Support/VSCodium/User'
 
 echo "Installing Visual Studio Codium..."
 brew install --cask vscodium
 mkdir -p "$HOME/${CODIUM_USER_PATH}"
-cp "$HOME/sun/env/${CODIUM_USER_PATH}/settings.json" "$HOME/${CODIUM_USER_PATH}/settings.json"
-cp "$HOME/sun/env/${CODIUM_USER_PATH}/keybindings.json" "$HOME/${CODIUM_USER_PATH}/keybindings.json"
+cp "$HOME/sun/env/.config/VSCodium/User/settings.json" "$HOME/${CODIUM_USER_PATH}/settings.json"
+cp "$HOME/sun/env/.config/VSCodium/User/keybindings.json" "$HOME/${CODIUM_USER_PATH}/keybindings.json"
 
 echo "Installing PHP..."
 brew tap shivammathur/php
 brew install shivammathur/php/php@7.4
+brew unlink php@7.4
 brew install shivammathur/php/php@8.0
+brew unlink php@8.0
 brew install shivammathur/php/php@8.1
+brew unlink php@8.1
 brew install shivammathur/php/php@8.3
+brew link --overwrite --force $PHP_VERSION
 
-echo "Installing JDK..."
+echo "Installing Java..."
 brew install openjdk@${JDK_VERSION}
 sudo ln -sfn "$(brew --prefix openjdk@${JDK_VERSION})/libexec/openjdk.jdk" "/Library/Java/JavaVirtualMachines/openjdk-${JDK_VERSION}.jdk"
 if ! grep -q "$JAVA_HOME_EXPORT" $HOME/.zprofile 2>/dev/null; then
@@ -41,27 +48,34 @@ if ! grep -q "$JAVA_HOME_EXPORT" $HOME/.zprofile 2>/dev/null; then
   source $HOME/.zprofile
 fi
 
+echo "Installing Maven..."
+brew install --ignore-dependencies maven
+
 echo "Installing Android SDK..."
 rm -rf ${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}
-mkdir -p ${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}
-curl -L -o $HOME/commandlinetools.zip https://dl.google.com/android/repository/commandlinetools-mac-${ANDROID_CMD_VERSION}_latest.zip
-unzip $HOME/commandlinetools.zip -d ${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}
-rm -f $HOME/commandlinetools.zip
-mv ${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}/cmdline-tools ${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}/latest
-if ! grep -q "$ANDROID_SDK_EXPORT" $HOME/.zprofile 2>/dev/null; then
-  echo "$ANDROID_SDK_EXPORT" >> $HOME/.zprofile
-  echo "$ANDROID_SDK_PATH_EXPORT" >> $HOME/.zprofile
-  source $HOME/.zprofile
-fi
-sdkmanager "platform-tools" "platforms;android-$ANDROID_PLATFORM_VERSION" "build-tools;$ANDROID_BUILD_TOOLS_VERSION"
+# mkdir -p ${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}
+# curl -L -o $HOME/commandlinetools.zip https://dl.google.com/android/repository/commandlinetools-mac-${ANDROID_CMD_VERSION}_latest.zip
+# unzip $HOME/commandlinetools.zip -d ${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}
+# rm -f $HOME/commandlinetools.zip
+# mv ${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}/cmdline-tools ${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}/latest
+# if ! grep -q "$ANDROID_SDK_EXPORT" $HOME/.zprofile 2>/dev/null; then
+#   echo "$ANDROID_SDK_EXPORT" >> $HOME/.zprofile
+#   echo "$ANDROID_SDK_PATH_EXPORT" >> $HOME/.zprofile
+# fi
+# export ANDROID_HOME="${ANDROID_SDK_PATH}"
+# export ANDROID_SDK_ROOT="${ANDROID_SDK_PATH}"
+# export PATH="${ANDROID_SDK_PATH}/${ANDROID_CMD_PATH}/latest/bin:${ANDROID_SDK_PATH}/platform-tools:$PATH"
+# sdkmanager "platform-tools" "platforms;android-$ANDROID_PLATFORM_VERSION" "build-tools;$ANDROID_BUILD_TOOLS_VERSION"
 
 echo "Installing Go..."
 brew install go
 
 echo "Installing NodeJS..."
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source $HOME/.zprofile
+mkdir -p "$NVM_PATH"
+export NVM_DIR="$NVM_PATH"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | PROFILE=/dev/null bash
+if ! grep -q "$NVM_DIR_EXPORT" $HOME/.zprofile 2>/dev/null; then
+  echo "$NVM_DIR_EXPORT" >> $HOME/.zprofile
+fi
+\. "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm install $NODE_VERSION
