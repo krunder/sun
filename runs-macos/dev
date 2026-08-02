@@ -25,6 +25,13 @@ mkdir -p "$HOME/${CODIUM_USER_PATH}"
 cp "$HOME/sun/env/${CODIUM_USER_PATH}/settings.json" "$HOME/${CODIUM_USER_PATH}/settings.json"
 cp "$HOME/sun/env/${CODIUM_USER_PATH}/keybindings.json" "$HOME/${CODIUM_USER_PATH}/keybindings.json"
 
+echo "Installing PHP..."
+brew tap shivammathur/php
+brew install shivammathur/php/php@7.4
+brew install shivammathur/php/php@8.0
+brew install shivammathur/php/php@8.1
+brew install shivammathur/php/php@8.3
+
 echo "Installing JDK..."
 brew install openjdk@${JDK_VERSION}
 sudo ln -sfn "$(brew --prefix openjdk@${JDK_VERSION})/libexec/openjdk.jdk" "/Library/Java/JavaVirtualMachines/openjdk-${JDK_VERSION}.jdk"
