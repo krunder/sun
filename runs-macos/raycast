@@ -1,0 +1,22 @@
+#!/bin/bash
+
+brew install --cask raycast
+
+open -gj -a Raycast
+
+cat <<'EOF'
+
+Two manual steps remain:
+
+1. Cmd+Space for Raycast
+   - Accept "Replace Spotlight" during onboarding, or set manually:
+     Raycast Settings (Cmd+,) > General > Raycast Hotkey > Cmd+Space
+   - Free it up from Spotlight:
+     System Settings > Keyboard > Keyboard Shortcuts > Spotlight
+     > untick "Show Spotlight search"
+
+2. Window management hotkeys
+   - Raycast Settings (Cmd+,) > Extensions > Window Management
+   - Pick each action (Left Half, Right Half, Maximize, ...) > Record Hotkey
+
+EOF
