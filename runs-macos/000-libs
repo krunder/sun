@@ -12,6 +12,5 @@ brew update
 brew upgrade
 brew cleanup
 
-sudo pacman -S --noconfirm base-devel git gnome-keyring less unzip vlc gnome-themes-extra adobe-source-code-pro-fonts ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ttf-roboto
-
-git config --global credential.helper libsecret
+xcode-select --install
+brew install git less unzip font-roboto

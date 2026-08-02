@@ -2,6 +2,5 @@
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-sudo pacman -S --noconfirm ghostty
-
+brew install --cask ghostty
 cp -r $script_dir/../env/.config/ghostty $HOME/.config

@@ -2,5 +2,5 @@
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-sudo pacman -S --noconfirm spotify-player
+brew install spotify_player
 cp -r $script_dir/../env/.config/spotify-player $HOME/.config

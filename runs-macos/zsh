@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S --noconfirm zsh
+brew install zsh
 
 chsh -s $(which zsh)
 
