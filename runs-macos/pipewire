@@ -1,0 +1,6 @@
+#!/bin/bash
+
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+sudo pacman -S --noconfirm pavucontrol
+cp -r $script_dir/../env/.config/pipewire $HOME/.config

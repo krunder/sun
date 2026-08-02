@@ -1,0 +1,17 @@
+#!/bin/bash
+
+fstab="/etc/fstab"
+
+user_id=$( id -u )
+group_id=$( id -g )
+
+device_nas="/dev/sda2"
+uuid_nas=$(blkid -s UUID -o value "$device_nas")
+
+sudo mkdir -p /mnt/nas
+
+fstab_nas="UUID=${uuid_nas} /mnt/nas ntfs-3g rw,noatime,nodev,nosuid,uid=${user_id},gid=${group_id} 0 2"
+
+if ! grep -q "$fstab_nas" $fstab; then
+  echo $fstab_nas | sudo tee -a $fstab
+fi
