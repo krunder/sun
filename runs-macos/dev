@@ -19,8 +19,6 @@ NODE_VERSION=24
 
 CODIUM_USER_PATH='Library/Application Support/VSCodium/User'
 
-cp -r $HOME/sun/env/.local/scripts $HOME/.local
-
 echo "Installing Visual Studio Codium..."
 brew install --cask vscodium
 mkdir -p "$HOME/${CODIUM_USER_PATH}"

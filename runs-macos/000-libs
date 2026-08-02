@@ -14,3 +14,5 @@ brew cleanup
 
 xcode-select --install
 brew install git less unzip font-roboto
+
+cp -r $HOME/sun/env/.local/scripts $HOME/.local
