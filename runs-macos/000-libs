@@ -13,5 +13,6 @@ brew cleanup
 
 xcode-select --install
 brew install ca-certificates git less unzip font-roboto
+brew install --cask font-jetbrains-mono-nerd-font
 
 cp -r $HOME/sun/env/.local/scripts $HOME/.local

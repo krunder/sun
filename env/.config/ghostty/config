@@ -1,10 +1,11 @@
 theme = Rose Pine Moon
 background = #000
-background-opacity = 0.85
+background-opacity = 0.90
 background-blur = false
 confirm-close-surface = false
 
-font-size = 10
+font-size = 13
 
 shell-integration-features = no-title
 gtk-titlebar = false
+

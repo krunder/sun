@@ -3,4 +3,4 @@
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 brew install --cask ghostty
-cp -r $script_dir/../env/.config/ghostty/config "${HOME}/Library/Application Support/com.mitchellh.ghostty"
+cp -r $script_dir/../env/.config/ghostty/config "${HOME}/.config/ghostty"
