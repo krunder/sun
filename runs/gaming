@@ -2,8 +2,13 @@
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-sudo pacman -Sy --noconfirm multilib
-sudo pacman -Sy --noconfirm steam lib32-nvidia-utils gamemode lib32-gamemode
+if ! grep -q "^\[multilib\]" /etc/pacman.conf; then
+    sudo sed -i "/^#\[multilib\]/,/^#Include = \/etc\/pacman.d\/mirrorlist/ s/^#//" /etc/pacman.conf
+fi
+
+sudo pacman -Sy
+paru -S --noconfirm --needed lib32-nvidia-580xx-utils
+sudo pacman -S --noconfirm steam gamemode lib32-gamemode
 
 # Steam
 cp -r $script_dir/../env/.local $HOME/.local

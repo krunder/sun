@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo pacman -S --noconfirm sddm
+sudo systemctl enable sddm.service

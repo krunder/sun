@@ -1,10 +1,13 @@
 #!/bin/bash
 
-sudo pacman -S --noconfirm base-devel git gnome-keyring less unzip ntfs-3g feh vlc gnome-themes-extra adobe-source-code-pro-fonts ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ttf-roboto
-
 git clone https://aur.archlinux.org/paru.git
 cd paru
-makepkg -s --noconfirm
-rm -rf ../paru
+#makepkg -si --noconfirm
+cd ..
+rm -rf paru
+
+paru -S --noconfirm linux linux-headers dkms nvidia-580xx-dkms nvidia-580xx-utils
+
+sudo pacman -S --noconfirm base-devel gnome-keyring egl-wayland less unzip ntfs-3g feh vlc gnome-themes-extra adobe-source-code-pro-fonts ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ttf-roboto
 
 git config --global credential.helper libsecret
