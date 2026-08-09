@@ -15,3 +15,38 @@ fstab_nas="UUID=${uuid_nas} /mnt/nas ntfs-3g rw,noatime,nodev,nosuid,uid=${user_
 if ! grep -q "$fstab_nas" $fstab; then
   echo $fstab_nas | sudo tee -a $fstab
 fi
+
+if ! mountpoint -q /mnt/nas; then
+  sudo mount /mnt/nas
+fi
+
+# --- NFS share for /mnt/nas/Media ---
+
+sudo pacman -S --needed --noconfirm nfs-utils
+
+nfs_root="/Media"
+media_dir="/mnt/nas/Media"
+
+sudo mkdir -p "$nfs_root"
+
+fstab_media="${media_dir} ${nfs_root} none bind 0 0"
+
+if ! grep -q "$fstab_media" $fstab; then
+  echo $fstab_media | sudo tee -a $fstab
+fi
+
+if ! mountpoint -q "$nfs_root"; then
+  sudo mount --bind "$media_dir" "$nfs_root"
+fi
+
+exports="/etc/exports"
+nfs_client="192.168.0.0/24"
+
+exports_media="${nfs_root} ${nfs_client}(rw,sync,no_subtree_check,all_squash,anonuid=${user_id},anongid=${group_id})"
+
+if ! grep -q "$exports_media" $exports; then
+  echo "$exports_media" | sudo tee -a $exports
+fi
+
+sudo systemctl enable --now nfs-server.service
+sudo exportfs -ra
