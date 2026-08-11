@@ -17,17 +17,17 @@ ANDROID_SDK_PATH_EXPORT='export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/lates
 NVM_VERSION='0.40.4'
 NODE_VERSION=24
 
-CODIUM_USER_PATH='.config/VSCodium/User'
-CODIUM_OSS_PATH='.vscode-oss'
+CODE_USER_PATH='.config/Code/User'
+CODE_OSS_PATH='.vscode'
 
 cp -r $HOME/sun/env/.local/scripts $HOME/.local
 
-echo "Installing Visual Studio Codium..."
-paru -S --noconfirm vscodium-bin
-mkdir -p $HOME/${CODIUM_OSS_PATH}/extensions && cp -r $HOME/sun/env/${CODIUM_OSS_PATH}/extensions/extensions.json $HOME/${CODIUM_OSS_PATH}/extensions/extensions.json 
-mkdir -p $HOME/${CODIUM_USER_PATH}
-cp $HOME/sun/env/${CODIUM_USER_PATH}/settings.json $HOME/${CODIUM_USER_PATH}/settings.json
-cp $HOME/sun/env/${CODIUM_USER_PATH}/keybindings.json $HOME/${CODIUM_USER_PATH}/keybindings.json
+echo "Installing Visual Studio Code..."
+paru -S --noconfirm visual-studio-code-bin
+mkdir -p $HOME/${CODE_OSS_PATH}/extensions && cp -r $HOME/sun/env/${CODE_OSS_PATH}/extensions/extensions.json $HOME/${CODE_OSS_PATH}/extensions/extensions.json 
+mkdir -p $HOME/${CODE_USER_PATH}
+cp $HOME/sun/env/${CODE_USER_PATH}/settings.json $HOME/${CODE_USER_PATH}/settings.json
+cp $HOME/sun/env/${CODE_USER_PATH}/keybindings.json $HOME/${CODE_USER_PATH}/keybindings.json
 
 echo "Installing JDK..."
 sudo pacman -S --noconfirm jdk${JDK_VERSION}-openjdk
