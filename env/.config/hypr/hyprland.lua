@@ -268,7 +268,7 @@ hl.env("__GL_VRR_ALLOWED", "0")
 hl.config({
     general = {
         gaps_in = 2,
-        gaps_out = "5,5,5,5",
+        gaps_out = 5,
         border_size = 2,
         -- https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
         col = {
@@ -304,8 +304,7 @@ hl.config({
     },
     -- https://wiki.hyprland.org/Configuring/Variables/#animations
     animations = {
-        enabled = "no, please :)",
-        -- Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+        enabled = false,
     },
     master = {
         new_status = "master",
