@@ -4,3 +4,19 @@ sudo pacman -S --noconfirm mesa vulkan-radeon libva-mesa-driver dkms lib32-mesa 
 
 sudo dkms install leds-valve-dkms/0.1 -k $(uname -r)
 sudo modprobe leds-valve
+
+poweroff_src=/usr/src/steamify-fremont-poweroff-1
+sudo mkdir -p $poweroff_src
+sudo curl -fsSL -o $poweroff_src/steamify-fremont-poweroff.c \
+    https://raw.githubusercontent.com/theupriser/steamify-cachyos/609407c789824558a02daae273b6c07be4e68480/patches/steamify-fremont-poweroff.c
+echo "obj-m := steamify-fremont-poweroff.o" | sudo tee $poweroff_src/Makefile > /dev/null
+sudo tee $poweroff_src/dkms.conf > /dev/null << 'EOF'
+PACKAGE_NAME="steamify-fremont-poweroff"
+PACKAGE_VERSION="1"
+BUILT_MODULE_NAME[0]="steamify-fremont-poweroff"
+DEST_MODULE_LOCATION[0]="/updates/dkms"
+AUTOINSTALL="yes"
+EOF
+sudo dkms install steamify-fremont-poweroff/1 -k $(uname -r)
+echo steamify-fremont-poweroff | sudo tee /etc/modules-load.d/steamify-fremont-poweroff.conf > /dev/null
+sudo modprobe steamify-fremont-poweroff
