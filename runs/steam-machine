@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo pacman -S --noconfirm mesa vulkan-radeon libva-mesa-driver dkms lib32-mesa lib32-vulkan-radeon
+
+sudo dkms install leds-valve-dkms/0.1 -k $(uname -r)
+sudo modprobe leds-valve
