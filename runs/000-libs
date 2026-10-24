@@ -2,12 +2,15 @@
 
 git clone https://aur.archlinux.org/paru.git
 cd paru
-#makepkg -si --noconfirm
+makepkg -si --noconfirm
 cd ..
 rm -rf paru
 
-paru -S --noconfirm linux linux-headers dkms nvidia-580xx-dkms nvidia-580xx-utils
+sudo pacman -S --noconfirm mesa vulkan-radeon libva-mesa-driver
 
-sudo pacman -S --noconfirm base-devel gnome-keyring egl-wayland btop playerctl less unzip ntfs-3g feh vlc gnome-themes-extra adobe-source-code-pro-fonts ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ttf-roboto
+sudo pacman -S --noconfirm base-devel gnome-keyring egl-wayland dkms btop playerctl less unzip ntfs-3g feh vlc gnome-themes-extra adobe-source-code-pro-fonts ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ttf-roboto
+
+sudo dkms install leds-valve-dkms/0.1 -k $(uname -r)
+sudo modprobe leds-valve
 
 git config --global credential.helper libsecret
