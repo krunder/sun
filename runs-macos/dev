@@ -20,13 +20,13 @@ NVM_DIR_EXPORT='export NVM_DIR=$HOME/.config/nvm'
 NODE_VERSION=24
 PHP_VERSION='php@8.3'
 
-CODIUM_USER_PATH='Library/Application Support/VSCodium/User'
+CODE_USER_PATH='Library/Application Support/Code/User'
 
-echo "Installing Visual Studio Codium..."
-brew install --cask vscodium
-mkdir -p "$HOME/${CODIUM_USER_PATH}"
-cp "$HOME/sun/env/.config/VSCodium/User/settings.json" "$HOME/${CODIUM_USER_PATH}/settings.json"
-cp "$HOME/sun/env/.config/VSCodium/User/keybindings.json" "$HOME/${CODIUM_USER_PATH}/keybindings.json"
+echo "Installing Visual Studio Code..."
+brew install --cask visual-studio-code
+mkdir -p "$HOME/${CODE_USER_PATH}"
+cp "$HOME/sun/env/.config/Code/User/settings.json" "$HOME/${CODE_USER_PATH}/settings.json"
+cp "$HOME/sun/env/.config/Code/User/keybindings.json" "$HOME/${CODE_USER_PATH}/keybindings.json"
 
 echo "Installing PHP..."
 brew tap shivammathur/php
